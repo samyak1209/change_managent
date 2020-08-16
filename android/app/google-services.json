@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "334452897389",
+    "firebase_url": "https://change-managment-24439.firebaseio.com",
+    "project_id": "change-managment-24439",
+    "storage_bucket": "change-managment-24439.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:334452897389:android:8fa9d461c3e5f0e25c3164",
+        "android_client_info": {
+          "package_name": "com.example.changemanagent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "334452897389-0spfsbrq67ojeli96m8ms6hkhknl56bn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfKNzr8vO8POTk9gqrKVMVfWmsBVzH8ik"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "334452897389-0spfsbrq67ojeli96m8ms6hkhknl56bn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
