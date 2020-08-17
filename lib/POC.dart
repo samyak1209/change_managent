@@ -1,10 +1,12 @@
 import 'dart:convert';
+//import 'dart:html';
 import 'package:changemanagent/components/Video.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:changemanagent/Login/auth.dart';
 import 'package:changemanagent/components/AboutUs.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:changemanagent/services/services.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/services.dart';
 
@@ -18,10 +20,10 @@ class _PocPageState extends State<PocPage> {
   Future<PocData> Data;
 
   @override
-  void initState() {
+ /* void initState() {
     super.initState();
     Data=fetchData();
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -87,11 +89,57 @@ class _PocPageState extends State<PocPage> {
       ),
       body: ListView(children: <Widget>[
         Container(
-          child: FutureBuilder<PocData>(
-            future: Data,
+          child: FutureBuilder(
+            future: getcategory(),
             builder: (context,snapshot){
               if (snapshot.hasData) {
-                return Text("HI");
+                List<PocData> d=snapshot.data;
+                print(d.length);
+                return Container(
+                  padding: EdgeInsets.all(20),
+                  height: MediaQuery.of(context).size.height*0.9,
+                  child: ListView.builder(
+                    itemCount: d.length,
+                    scrollDirection: Axis.vertical,
+                      itemBuilder: (context, int index){
+                        return Card(
+                          child: Container(height: MediaQuery.of(context).size.height*0.25,padding: EdgeInsets.all(30),
+                          child: Column(children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                Text('Business Unit - ${d.elementAt(index).Business}',style: TextStyle(fontSize: 18),),
+                              ],
+                            ),
+                            SizedBox(height: 10,),
+                            Row(
+                              children: <Widget>[
+                                Text('Employee ID - ${d.elementAt(index).ID}',style: TextStyle(fontSize: 18)),
+                              ],
+                            ),
+                            SizedBox(height: 10,),
+                            Row(
+                              children: <Widget>[
+                                Text('Name - ${d.elementAt(index).Name}',style: TextStyle(fontSize: 18)),
+                              ],
+                            ),
+                            SizedBox(height: 10,),
+                            Row(
+                              children: <Widget>[
+                                Text('Role - ${d.elementAt(index).Role}',style: TextStyle(fontSize: 18)),
+                              ],
+                            ),
+                            SizedBox(height: 10,),
+                            Row(
+                              children: <Widget>[
+                                Text('Location - ${d.elementAt(index).Location}',style: TextStyle(fontSize: 18)),
+                              ],
+                            ),
+                          ],),),
+                        );
+
+                      }
+                  ),
+                );
               } else if (snapshot.hasError) {
                 return Text("${snapshot.error}");
               }
@@ -112,18 +160,11 @@ _launchURL(url) async {
     throw 'Could not launch $url';
   }
 }
-/*const jsoncodec=const JsonCodec();
-_loadData() async {
-  var url="https://change-managment-24439.firebaseio.com/";
-  var httpClient = createHttpClient();
-}*/
-Future<PocData> fetchData() async  {
-  final response= await  http.get('https://change-managment-24439.firebaseio.com/');
-  if (response.statusCode == 200) {
-    return PocData.fromJson(json.decode(response.body));
-  } else {
-    throw Exception('Failed to load Data');
-  }
+ getcategory(){
+  return MyService().get(Resource(
+      url: 'https://raw.githubusercontent.com/samyak1209/change_managent/master/new1.json',
+      parse: PocData.parse
+  ));
 }
 
 class PocData{
@@ -143,5 +184,16 @@ class PocData{
       Role: json["Role"],
       Location: json["Location"]
     );
+  }
+  static parse(response) {
+    final result = json.decode(response.body);
+    Iterable list;
+    try {
+      list = result['result'];
+    } catch (e) {
+      print(e.toString());
+      list = result;
+    }
+    return list.map((model) => PocData.fromJson(model)).toList();
   }
 }
