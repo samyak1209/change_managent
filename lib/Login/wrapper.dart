@@ -3,6 +3,7 @@ import 'package:changemanagent/Login/user.dart';
 import 'package:changemanagent/Login/authenticate.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:changemanagent/Login/references.dart';
 
 class Wrapper extends StatelessWidget {
   @override
@@ -11,7 +12,8 @@ class Wrapper extends StatelessWidget {
     print(user);
     // return Home or authenticate widget
     if (user == null) {
-      return Authenticate();
+       return Authenticate();
+
     } else {
       return PocPage();
     }

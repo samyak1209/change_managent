@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:changemanagent/Login/loading.dart';
 import 'package:changemanagent/Login/auth.dart';
+import 'package:changemanagent/Login/references.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
@@ -103,6 +104,10 @@ class _SignInState extends State<SignIn> {
                               error =
                                   'No user exits with such email and Password';
                             });
+                          }
+                          else{
+                            Navigator.pop(context);
+                            Navigator.of(context).push(new MaterialPageRoute(builder: (context){return References();}));
                           }
                         }
                       },
