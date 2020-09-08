@@ -50,6 +50,9 @@ flutter:
       - images/logout.webp
       - images/tcs.jpg
       - images/sampleVideo.mp4
+      - images/tcslogo.png
+      - images/user.png
+      - images/cc.png
 
 
   # To add assets to your application, add an assets section, like this:

@@ -1,5 +1,7 @@
 
 import 'package:changemanagent/POC.dart';
+import 'package:changemanagent/main.dart';
+import 'package:changemanagent/mainLanding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -53,7 +55,7 @@ class _ReferencesState extends State<References> {
                 );
               }).toList(),
             ),
-            Align(alignment: Alignment.bottomCenter,
+            Container(alignment: Alignment.bottomCenter,padding: EdgeInsets.only(bottom: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: map<Widget>(imgList, (index, url) {
@@ -76,7 +78,7 @@ class _ReferencesState extends State<References> {
   }
    Container1(){
     return Container(
-      //padding: EdgeInsets.only(top: 24),
+      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
       height: MediaQuery.of(context).size.height,
       child: Stack(children: <Widget>[
         /*Container(height: MediaQuery.of(context).size.height*0.7,
@@ -90,7 +92,13 @@ class _ReferencesState extends State<References> {
         Align(alignment: Alignment.bottomCenter,
         child: Container(height: MediaQuery.of(context).size.height*0.55,
           decoration: new BoxDecoration(
-            color: Colors.orange,
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: <Color>[
+                  Color.fromRGBO(99,194,157, 1),
+                  Color.fromRGBO(61,133,198, 1),
+                ]),
             borderRadius: BorderRadius.all(
               Radius.circular(16.0) //                 <--- border radius here
           ),
@@ -105,26 +113,30 @@ class _ReferencesState extends State<References> {
             Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',style: TextStyle(color: Colors.white,fontSize: 18),),
           ],)
         ),),
-        /*Align(alignment: Alignment.bottomRight,child: Container(
+        Align(alignment: Alignment.bottomRight,child: Container(
           padding: EdgeInsets.fromLTRB(0, 0, 50, 60),
-          child: IconButton(
-            icon: Icon(Icons.forward),
-            onPressed: (index){
-             /* Navigator.pop(context);
-             Navigator.of(context).push(new MaterialPageRoute(builder: (context){return References1();}));
-              //Container2();*/
-             setState(() {
-               _current=index;
-             });
-            },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Text('Skip'),
+              IconButton(
+                icon: Icon(Icons.arrow_forward),
+                onPressed: (){
+                 Navigator.pop(context);
+                 Navigator.of(context).push(new MaterialPageRoute(builder: (context){return MyApp1();}));
+                  //Container2();
+
+                },
+              ),
+            ],
           ),
-        ),)*/
+        ),)
       ],),
     );
   }
   Container2(){
     return Container(
-      //padding: EdgeInsets.only(top: 24),
+      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
       height: MediaQuery.of(context).size.height,
       child: Stack(children: <Widget>[
         /*Container(height: MediaQuery.of(context).size.height*0.7,
@@ -138,7 +150,13 @@ class _ReferencesState extends State<References> {
         Align(alignment: Alignment.bottomCenter,
           child: Container(height: MediaQuery.of(context).size.height*0.55,
             decoration: new BoxDecoration(
-              color: Colors.orange,
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: <Color>[
+                    Color.fromRGBO(255,203,5, 1),
+                    Color.fromRGBO(241,90,49, 1),
+                  ]),
               borderRadius: BorderRadius.all(
                   Radius.circular(16.0) //                 <--- border radius here
               ),
@@ -153,24 +171,30 @@ class _ReferencesState extends State<References> {
               Text('Lorem ipsum dolor siteiusmod tempor incididunt ut labore et dolore magna aliqua.',style: TextStyle(color: Colors.white,fontSize: 18),),
             ],)
         ),),
-        /*Align(alignment: Alignment.bottomRight,child: Container(
+        Align(alignment: Alignment.bottomRight,child: Container(
           padding: EdgeInsets.fromLTRB(0, 0, 50, 60),
-          child: IconButton(
-            icon: Icon(Icons.forward),
-            onPressed: (){
-              /*Navigator.pop(context);
-              Navigator.of(context).push(new MaterialPageRoute(builder: (context){return References1();}));
-              //Container2();*/
-              _current++;
-            },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Text('Skip'),
+              IconButton(
+                icon: Icon(Icons.arrow_forward),
+                onPressed: (){
+                  Navigator.pop(context);
+                  Navigator.of(context).push(new MaterialPageRoute(builder: (context){return MyApp1();}));
+                  //Container2();
+
+                },
+              ),
+            ],
           ),
-        ),)*/
+        ),)
       ],),
     );
   }
   Container3(){
     return Container(
-      padding: EdgeInsets.only(top: 24),
+      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
       height: MediaQuery.of(context).size.height,
       child: Stack(children: <Widget>[
         /*Container(height: MediaQuery.of(context).size.height*0.7,
@@ -184,7 +208,13 @@ class _ReferencesState extends State<References> {
         Align(alignment: Alignment.bottomCenter,
           child: Container(height: MediaQuery.of(context).size.height*0.55,
             decoration: new BoxDecoration(
-              color: Colors.orange,
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: <Color>[
+                    Color.fromRGBO(238,61,133, 1),
+                    Color.fromRGBO(105,80,161, 1),
+                  ]),
               borderRadius: BorderRadius.all(
                   Radius.circular(16.0) //                 <--- border radius here
               ),
@@ -201,13 +231,20 @@ class _ReferencesState extends State<References> {
         ),),
         Align(alignment: Alignment.bottomRight,child: Container(
           padding: EdgeInsets.fromLTRB(0, 0, 50, 60),
-          child: IconButton(
-            icon: Icon(Icons.forward),
-            onPressed: (){
-              Navigator.pop(context);
-              Navigator.of(context).push(new MaterialPageRoute(builder: (context){return PocPage();}));
-              //Container2();
-            },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Text('Next'),
+              IconButton(
+                icon: Icon(Icons.arrow_forward),
+                onPressed: (){
+                  Navigator.pop(context);
+                  Navigator.of(context).push(new MaterialPageRoute(builder: (context){return MyApp1();}));
+                  //Container2();
+
+                },
+              ),
+            ],
           ),
         ),)
       ],),
