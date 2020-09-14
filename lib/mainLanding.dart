@@ -10,100 +10,112 @@ class MyApp1 extends StatefulWidget {
 
 class MyAppState extends State<MyApp1> {
   var scaffoldKey = GlobalKey<ScaffoldState>();
-  int _current = 0;
-  List imgList = [pic1(),'https://homepages.cae.wisc.edu/~ece533/images/cat.png','https://homepages.cae.wisc.edu/~ece533/images/peppers.png'];
-  List<T> map<T>(List list, Function handler) {
-    List<T> result = [];
-    for (var i = 0; i < list.length; i++) {
-      result.add(handler(i, list[i]));
-    }
-    return result;
-  }
   static Container pic1(){
     return Container(
       padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(gradient: LinearGradient(
-        begin: Alignment.centerLeft,end: Alignment.centerRight,colors: [
-          Color.fromRGBO(255,203, 5, 1),
-          Color.fromRGBO(241,90, 49, 1),
-      ]
-      )),
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.yellow, Colors.deepOrange],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+          borderRadius: new BorderRadius.only(
+            topLeft:  const  Radius.circular(30.0),
+            topRight: const  Radius.circular(30.0),
+            bottomLeft: const Radius.circular(30.0),
+            bottomRight: const Radius.circular(30.0),
+          )
+      ),
     );
   }
   static Container pic3(){
     return Container(
       padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(gradient: LinearGradient(
-          begin: Alignment.centerLeft,end: Alignment.centerRight,colors: [
-        Color.fromRGBO(99,194, 157, 1),
-        Color.fromRGBO(0,125, 197, 1),
-      ]
-      )),
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.green, Colors.lightBlueAccent],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+          borderRadius: new BorderRadius.only(
+            topLeft:  const  Radius.circular(30.0),
+            topRight: const  Radius.circular(30.0),
+            bottomLeft: const Radius.circular(30.0),
+            bottomRight: const Radius.circular(30.0),
+          )
+      ),
     );
   }
   static Container pic2(){
     return Container(
       padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(gradient: LinearGradient(
-          begin: Alignment.centerLeft,end: Alignment.centerRight,colors: [
-        Color.fromRGBO(238,61, 133, 1),
-        Color.fromRGBO(105,80, 161, 1),
-      ]
-      )),
+      decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.pinkAccent, Colors.deepPurple],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+          borderRadius: new BorderRadius.only(
+            topLeft:  const  Radius.circular(30.0),
+            topRight: const  Radius.circular(30.0),
+            bottomLeft: const Radius.circular(30.0),
+            bottomRight: const Radius.circular(30.0),
+          )
+      ),
     );
   }
   Widget intro(){
     return Row(
-        children: [
-    CircleAvatar(
-    backgroundImage: NetworkImage(
-    'https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png'),
-    radius: 35.0,
-    ),
-    SizedBox(width: 20.0,),
-    Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: <Widget>[
+      children: [
+        CircleAvatar(
+          backgroundImage: NetworkImage(
+              'https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png'),
+          radius: 35.0,
+        ),
+        SizedBox(width: 20.0,),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
 
-    Text('Hello,',
-    style: TextStyle(
-    fontSize: 20.0,
-    color: Colors.blue,
-    fontWeight: FontWeight.bold,
-    ),
-    ),
-    SizedBox(height: 5.0,),
-    Text('John Smith',
-    style: TextStyle(
-    fontSize: 15.0,
-    color: Colors.black
-    ),)
-    ],
-    ),],);
+            Text('Hello,',
+              style: TextStyle(
+                fontSize: 20.0,
+                color: Colors.blue,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 5.0,),
+            Text('John Smith',
+              style: TextStyle(
+                  fontSize: 15.0,
+                  color: Colors.black
+              ),)
+          ],
+        ),],);
   }
   int curindex=0;
   @override
   Widget build(BuildContext context) {
     final tabs=[home(context),
-     secondscreen(),
+      secondscreen(),
       Center(child: Text('Connect'),),
       Center(child: Text('Training'),),
     ];
 
     return new MaterialApp(
-      theme: ThemeData(
-        // Define the default Brightness and Colors
-        brightness: Brightness.light,
-        primaryColor: Colors.lightBlue[800],
-        accentColor: Colors.cyan[600],
-      ),
-      home: Scaffold(
-        backgroundColor: Color.fromRGBO(242,242,242, 1),
-        key: scaffoldKey,
-        /*drawer: new Drawer(
+        theme: ThemeData(
+          // Define the default Brightness and Colors
+          brightness: Brightness.light,
+          primaryColor: Colors.lightBlue[800],
+          accentColor: Colors.cyan[600],
+        ),
+        home: Scaffold(
+            backgroundColor: Color.fromRGBO(242,242,242, 1),
+            key: scaffoldKey,
+            /*drawer: new Drawer(
           child: new ListView(),
         ),*/
-        /*appBar: new AppBar(
+            /*appBar: new AppBar(
           actions: <Widget>[
             IconButton(icon: Icon(Icons.search,)),
             IconButton(icon: Icon(Icons.notifications,)),
@@ -120,47 +132,55 @@ class MyAppState extends State<MyApp1> {
                   ])
           ),
         ),      ),*/
-        bottomNavigationBar: BottomNavigationBar(
-          onTap: (index){setState(() {
-            curindex=index;
-          });},
-          currentIndex: curindex,
-          type: BottomNavigationBarType.fixed,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home, color: Colors.blueGrey,),
-              title: Text('Home', style: TextStyle(
-                color: Colors.blueGrey,
-              ),),
-            ),
+            bottomNavigationBar: BottomNavigationBar(
+              onTap: (index){setState(() {
+                curindex=index;
+              });},
+              currentIndex: curindex,
+              type: BottomNavigationBarType.fixed,
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home, color: Colors.blueGrey,),
+                  title: Text('Home', style: TextStyle(
+                    color: Colors.blueGrey,
+                  ),),
+                ),
 
-            BottomNavigationBarItem(
-              icon: Icon(Icons.announcement, color: Colors.blueGrey,),
-              title: Text('About', style: TextStyle(
-                color: Colors.blueGrey,
-              ),),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_today, color: Colors.blueGrey,),
-              title: Text('Calendar', style: TextStyle(
-                color: Colors.blueGrey,
-              ),),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.more_horiz, color: Colors.blueGrey,),
-              title: Text('More', style: TextStyle(
-                color: Colors.blueGrey,
-              ),),
-            ),
-          ],
-          selectedItemColor: Colors.blue,
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.announcement, color: Colors.blueGrey,),
+                  title: Text('About', style: TextStyle(
+                    color: Colors.blueGrey,
+                  ),),
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.calendar_today, color: Colors.blueGrey,),
+                  title: Text('Calendar', style: TextStyle(
+                    color: Colors.blueGrey,
+                  ),),
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.more_horiz, color: Colors.blueGrey,),
+                  title: Text('More', style: TextStyle(
+                    color: Colors.blueGrey,
+                  ),),
+                ),
+              ],
+              selectedItemColor: Colors.blue,
 
-        ),
-        body: tabs[curindex]
-    ));
+            ),
+            body: tabs[curindex]
+        ));
   }
-
-  static ListView home(context){
+  int _current = 0;
+    ListView home(context){
+    List imgList = ['1','2','3'];
+    List<T> map<T>(List list, Function handler) {
+      List<T> result = [];
+      for (var i = 0; i < list.length; i++) {
+        result.add(handler(i, list[i]));
+      }
+      return result;
+    }
     final Color background = Color.fromRGBO(99,194,157, 1);
     final Color fill = Color.fromRGBO(61,133,198, 1);
     final List<Color> gradient = [
@@ -184,37 +204,34 @@ class MyAppState extends State<MyApp1> {
               ],
               title: Image.asset('images/tcslogo.png'),
               flexibleSpace: Container(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: <Color>[
-                        Color.fromRGBO(99,194,157, 1),
-                        Color.fromRGBO(61,133,198, 1),
-                      ])
-              ),
-            ),     //backgroundColor: Color.fromRGBO(99,194,157, 1),
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors:  [Colors.blue, Colors.green])
+                ),
+              ),     //backgroundColor: Color.fromRGBO(99,194,157, 1),
             ),
             Stack(children: <Widget>[
 
               Container(decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: gradient,
+                  colors:  [Colors.green, Colors.blue],
                   end: Alignment.center,
                   begin: Alignment.topCenter,
                   //stops: stops,
                 ),
               ),height: 60,),
               Container(padding: EdgeInsets.fromLTRB(10, 20, 10, 0),child: Container(height: 100,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                topLeft:  const  Radius.circular(30.0),
-                topRight: const  Radius.circular(30.0),
-                bottomLeft: const Radius.circular(30.0),
-                bottomRight: const Radius.circular(30.0),
-              )),padding: EdgeInsets.only(left: 20,top: 10,bottom: 10)
-              ,child: Row(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft:  const  Radius.circular(30.0),
+                      topRight: const  Radius.circular(30.0),
+                      bottomLeft: const Radius.circular(30.0),
+                      bottomRight: const Radius.circular(30.0),
+                    )),padding: EdgeInsets.only(left: 20,top: 10,bottom: 10)
+                ,child: Row(
                   children: [
                     CircleAvatar(
                       backgroundImage: NetworkImage(
@@ -244,111 +261,109 @@ class MyAppState extends State<MyApp1> {
             ],),
             SizedBox(height: 10,),
             CarouselSlider(
-                items: [
-                  Container(
-                    margin: EdgeInsets.all(5.0),
-                    padding: EdgeInsets.only(left: 5,bottom: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.0),
+              items: [
+                Container(
+                  margin: EdgeInsets.all(5.0),
+                  padding: EdgeInsets.only(left: 5,bottom: 10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20.0),
 
-                    ),
-                    child:  Stack(
-                      //mainAxisAlignment: MainAxisAlignment.start,
-                      // crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        pic1(),
-                        SizedBox(width: 10,),
-                        Container(child :Align(child:InkWell(
-                            child: Text("Go",style: TextStyle(color: Colors.white,fontSize: 20),),
-                            onTap:(){
-                              /*Navigator.push(
+                  ),
+                  child:  Stack(
+                    //mainAxisAlignment: MainAxisAlignment.start,
+                    // crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      pic1(),
+                      SizedBox(width: 10,),
+                      Container(child :Align(child:InkWell(
+                          child: Text("Go",style: TextStyle(color: Colors.white,fontSize: 20),),
+                          onTap:(){
+                            /*Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => PocPage(),
                                 ),
                               );*/
-                            }
-                        ),alignment: Alignment.bottomLeft,),padding: EdgeInsets.all(10),)
-                      ],
-                    ),
-
+                          }
+                      ),alignment: Alignment.bottomLeft,),padding: EdgeInsets.all(10),)
+                    ],
                   ),
-                  Container(
-                    margin: EdgeInsets.all(5.0),
-                    padding: EdgeInsets.all(15.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.0),
-                      /*image: DecorationImage(
+
+                ),
+                Container(
+                  margin: EdgeInsets.all(5.0),
+                  padding: EdgeInsets.all(15.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20.0),
+                    /*image: DecorationImage(
                         image: NetworkImage('https://homepages.cae.wisc.edu/~ece533/images/cat.png'),
                         fit: BoxFit.cover,
                       ),*/
-                    ),
-                    child: Stack(
-                      //mainAxisAlignment: MainAxisAlignment.start,
-                     // crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        pic2(),
-                        SizedBox(width: 10,),
-                        Container(child :Align(child:InkWell(
-                            child: Text("Go",style: TextStyle(color: Colors.white,fontSize: 20),),
-                            onTap:(){
-                              /*Navigator.push(
+                  ),
+                  child: Stack(
+                    //mainAxisAlignment: MainAxisAlignment.start,
+                    // crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      pic2(),
+                      SizedBox(width: 10,),
+                      Container(child :Align(child:InkWell(
+                          child: Text("Go",style: TextStyle(color: Colors.white,fontSize: 20),),
+                          onTap:(){
+                            /*Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => PocPage(),
                                 ),
                               );*/
-                            }
-                        ),alignment: Alignment.bottomLeft,),padding: EdgeInsets.all(10),),
-                        Container(child: Align(alignment: Alignment.centerRight,child: Image.asset('images/cc.png',),),padding: EdgeInsets.only(right: 20),),
-                        Container(child: Align(alignment: Alignment.topLeft,child: Text('Promo title',style: TextStyle(color: Colors.white,fontSize: 20),),),padding: EdgeInsets.all(30),)
-                      ],
-                    ),
+                          }
+                      ),alignment: Alignment.bottomLeft,),padding: EdgeInsets.all(10),),
+                      Container(child: Align(alignment: Alignment.centerRight,child: Image.asset('images/cc.png',),),padding: EdgeInsets.only(right: 20),),
+                      Container(child: Align(alignment: Alignment.topLeft,child: Text('Promo title',style: TextStyle(color: Colors.white,fontSize: 20),),),padding: EdgeInsets.all(30),)
+                    ],
                   ),
-                  Container(
-                    margin: EdgeInsets.all(5.0),
-                    padding: EdgeInsets.all(15.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.0),
+                ),
+                Container(
+                  margin: EdgeInsets.all(5.0),
+                  padding: EdgeInsets.all(15.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20.0),
 
-                    ),
-                    child:  Stack(
-                      //mainAxisAlignment: MainAxisAlignment.start,
-                      // crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        pic3(),
-                        SizedBox(width: 10,),
-                        Container(child :Align(child:InkWell(
-                            child: Text("Go",style: TextStyle(color: Colors.white,fontSize: 20),),
-                            onTap:(){
-                              /*Navigator.push(
+                  ),
+                  child:  Stack(
+                    //mainAxisAlignment: MainAxisAlignment.start,
+                    // crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      pic3(),
+                      SizedBox(width: 10,),
+                      Container(child :Align(child:InkWell(
+                          child: Text("Go",style: TextStyle(color: Colors.white,fontSize: 20),),
+                          onTap:(){
+                            /*Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => PocPage(),
                                 ),
                               );*/
-                            }
-                        ),alignment: Alignment.bottomLeft,),padding: EdgeInsets.all(10),)
-                      ],
-                    ),
+                          }
+                      ),alignment: Alignment.bottomLeft,),padding: EdgeInsets.all(10),)
+                    ],
                   ),
-                ],
-                enableInfiniteScroll: false,
-                reverse: false,
-                enlargeCenterPage: true,
-                aspectRatio:
-                16 / 9,
-              //height: 200,
-                /*onPageChanged: (index) {
+                ),
+              ],
+              enableInfiniteScroll: false,
+              reverse: false,
+              enlargeCenterPage: true,
+              aspectRatio:
+              16 / 9,
+              onPageChanged: (index) {
                   setState(() {
                     _current = index;
-                  });}*/
-
+                  });}
             ),
             SizedBox(
               height: 5,
             ),
-            /*Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: map<Widget>(imgList, (index, url) {
                 return Container(
@@ -361,37 +376,7 @@ class MyAppState extends State<MyApp1> {
                   ),
                 );
               }),
-            ),*/
-            Row(mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                width: 10.0,
-                 height: 10.0,
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-                 decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.grey ,
-                    ),
-                ),
-              Container(
-                width: 10.0,
-                height: 10.0,
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.blue ,
-                ),
-              ),
-              Container(
-                width: 10.0,
-                height: 10.0,
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.grey ,
-                ),
-              ),
-            ],),
+            ),
             Container(padding: EdgeInsets.only(left: 10,right: 10,top: 10,bottom: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -411,10 +396,10 @@ class MyAppState extends State<MyApp1> {
                     ),
                     child: Column(
                       children: [
-                        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        /*Row(mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             //SizedBox(height: 5,),
-                            Container(
+                            *//*Container(
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color:Colors.grey,
@@ -424,15 +409,17 @@ class MyAppState extends State<MyApp1> {
                                 onPressed: (){},
                               ),
                             ),
-
+*//*
                             //SizedBox(width: 100,),
-                            Text('Tab Option no 1',
-                              style: TextStyle(
-                                color: Colors.blue,
-                                fontSize: 15,
-                              ),),
+                            Center(
+                              child:Text('Articles',
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  fontSize: 15,
+                                ),),
+                            ),
                             //SizedBox(width: 100,),
-                            Container(
+                            *//*Container(
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color:Colors.blueAccent,
@@ -441,8 +428,29 @@ class MyAppState extends State<MyApp1> {
                                 icon: Icon(Icons.navigate_next,color: Colors.white,),
                                 onPressed: (){},
                               ),
-                            ),
+                            ),*//*
                           ],
+                        ),*/
+                        Container(
+                          margin: EdgeInsets.only(left: 20,right: 20),
+                          padding: EdgeInsets.all(12),
+                          decoration: new BoxDecoration(
+                              color: Colors.white,
+
+                              borderRadius: new BorderRadius.only(
+                                topLeft:  const  Radius.circular(30.0),
+                                topRight: const  Radius.circular(30.0),
+                                bottomLeft: const Radius.circular(30.0),
+                                bottomRight: const Radius.circular(30.0),
+                              )
+                          ),
+                          child:  Center(
+                            child: Text('Articles',
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontSize: 20,
+                              ),),
+                          ),
                         ),
 
                       ],
