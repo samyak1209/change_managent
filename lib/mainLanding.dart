@@ -172,7 +172,7 @@ class MyAppState extends State<MyApp1> {
         ));
   }
   int _current = 0;
-    ListView home(context){
+  ListView home(context){
     List imgList = ['1','2','3'];
     List<T> map<T>(List list, Function handler) {
       List<T> result = [];
@@ -261,101 +261,101 @@ class MyAppState extends State<MyApp1> {
             ],),
             SizedBox(height: 10,),
             CarouselSlider(
-              items: [
-                Container(
-                  margin: EdgeInsets.all(5.0),
-                  padding: EdgeInsets.only(left: 5,bottom: 10),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
+                items: [
+                  Container(
+                    margin: EdgeInsets.all(5.0),
+                    padding: EdgeInsets.only(left: 5,bottom: 10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20.0),
 
-                  ),
-                  child:  Stack(
-                    //mainAxisAlignment: MainAxisAlignment.start,
-                    // crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      pic1(),
-                      SizedBox(width: 10,),
-                      Container(child :Align(child:InkWell(
-                          child: Text("Go",style: TextStyle(color: Colors.white,fontSize: 20),),
-                          onTap:(){
-                            /*Navigator.push(
+                    ),
+                    child:  Stack(
+                      //mainAxisAlignment: MainAxisAlignment.start,
+                      // crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        pic1(),
+                        SizedBox(width: 10,),
+                        Container(child :Align(child:InkWell(
+                            child: Text("Go",style: TextStyle(color: Colors.white,fontSize: 20),),
+                            onTap:(){
+                              /*Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => PocPage(),
                                 ),
                               );*/
-                          }
-                      ),alignment: Alignment.bottomLeft,),padding: EdgeInsets.all(10),)
-                    ],
-                  ),
+                            }
+                        ),alignment: Alignment.bottomLeft,),padding: EdgeInsets.all(10),)
+                      ],
+                    ),
 
-                ),
-                Container(
-                  margin: EdgeInsets.all(5.0),
-                  padding: EdgeInsets.all(15.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
-                    /*image: DecorationImage(
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(5.0),
+                    padding: EdgeInsets.all(15.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20.0),
+                      /*image: DecorationImage(
                         image: NetworkImage('https://homepages.cae.wisc.edu/~ece533/images/cat.png'),
                         fit: BoxFit.cover,
                       ),*/
-                  ),
-                  child: Stack(
-                    //mainAxisAlignment: MainAxisAlignment.start,
-                    // crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      pic2(),
-                      SizedBox(width: 10,),
-                      Container(child :Align(child:InkWell(
-                          child: Text("Go",style: TextStyle(color: Colors.white,fontSize: 20),),
-                          onTap:(){
-                            /*Navigator.push(
+                    ),
+                    child: Stack(
+                      //mainAxisAlignment: MainAxisAlignment.start,
+                      // crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        pic2(),
+                        SizedBox(width: 10,),
+                        Container(child :Align(child:InkWell(
+                            child: Text("Go",style: TextStyle(color: Colors.white,fontSize: 20),),
+                            onTap:(){
+                              /*Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => PocPage(),
                                 ),
                               );*/
-                          }
-                      ),alignment: Alignment.bottomLeft,),padding: EdgeInsets.all(10),),
-                      Container(child: Align(alignment: Alignment.centerRight,child: Image.asset('images/cc.png',),),padding: EdgeInsets.only(right: 20),),
-                      Container(child: Align(alignment: Alignment.topLeft,child: Text('Promo title',style: TextStyle(color: Colors.white,fontSize: 20),),),padding: EdgeInsets.all(30),)
-                    ],
+                            }
+                        ),alignment: Alignment.bottomLeft,),padding: EdgeInsets.all(10),),
+                        Container(child: Align(alignment: Alignment.centerRight,child: Image.asset('images/cc.png',),),padding: EdgeInsets.only(right: 20),),
+                        Container(child: Align(alignment: Alignment.topLeft,child: Text('Promo title',style: TextStyle(color: Colors.white,fontSize: 20),),),padding: EdgeInsets.all(30),)
+                      ],
+                    ),
                   ),
-                ),
-                Container(
-                  margin: EdgeInsets.all(5.0),
-                  padding: EdgeInsets.all(15.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20.0),
+                  Container(
+                    margin: EdgeInsets.all(5.0),
+                    padding: EdgeInsets.all(15.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20.0),
 
-                  ),
-                  child:  Stack(
-                    //mainAxisAlignment: MainAxisAlignment.start,
-                    // crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      pic3(),
-                      SizedBox(width: 10,),
-                      Container(child :Align(child:InkWell(
-                          child: Text("Go",style: TextStyle(color: Colors.white,fontSize: 20),),
-                          onTap:(){
-                            /*Navigator.push(
+                    ),
+                    child:  Stack(
+                      //mainAxisAlignment: MainAxisAlignment.start,
+                      // crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        pic3(),
+                        SizedBox(width: 10,),
+                        Container(child :Align(child:InkWell(
+                            child: Text("Go",style: TextStyle(color: Colors.white,fontSize: 20),),
+                            onTap:(){
+                              /*Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => PocPage(),
                                 ),
                               );*/
-                          }
-                      ),alignment: Alignment.bottomLeft,),padding: EdgeInsets.all(10),)
-                    ],
+                            }
+                        ),alignment: Alignment.bottomLeft,),padding: EdgeInsets.all(10),)
+                      ],
+                    ),
                   ),
-                ),
-              ],
-              enableInfiniteScroll: false,
-              reverse: false,
-              enlargeCenterPage: true,
-              aspectRatio:
-              16 / 9,
-              onPageChanged: (index) {
+                ],
+                enableInfiniteScroll: false,
+                reverse: false,
+                enlargeCenterPage: true,
+                aspectRatio:
+                16 / 9,
+                onPageChanged: (index) {
                   setState(() {
                     _current = index;
                   });}
@@ -489,11 +489,61 @@ class MyAppState extends State<MyApp1> {
                             'Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
                             ,style: TextStyle(fontSize: 15), ),
                         ),
+                        Row(
+                          children: [
+                            SizedBox(width: 20,),
+                            InkWell(
+                                child: Text("Article Title",style: TextStyle(color: Colors.blueAccent,fontSize: 25,fontWeight: FontWeight.bold),),
+                                onTap:(){
+                                  //Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> PocPage()));
+                                }
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 5,),
+                        Row(
+                          children: [
+                            SizedBox(width: 20,),
+                            Text("Subtitle",style: TextStyle(color: Colors.grey,fontSize: 18,fontWeight: FontWeight.bold)),
+                          ],
+                        ),
+                        SizedBox(height: 15,),
+                        Container(
+                          margin: EdgeInsets.only(left:22,right: 20 ),
+                          child: Text(
+                            'Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                            ,style: TextStyle(fontSize: 15), ),
+                        ),Row(
+                          children: [
+                            SizedBox(width: 20,),
+                            InkWell(
+                                child: Text("Article Title",style: TextStyle(color: Colors.blueAccent,fontSize: 25,fontWeight: FontWeight.bold),),
+                                onTap:(){
+                                  //Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> PocPage()));
+                                }
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 5,),
+                        Row(
+                          children: [
+                            SizedBox(width: 20,),
+                            Text("Subtitle",style: TextStyle(color: Colors.grey,fontSize: 18,fontWeight: FontWeight.bold)),
+                          ],
+                        ),
+                        SizedBox(height: 15,),
+                        Container(
+                          margin: EdgeInsets.only(left:22,right: 20 ),
+                          child: Text(
+                            'Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                            ,style: TextStyle(fontSize: 15), ),
+                        ),
                       ],)
                   ),
 
                 ],
               ),
+
             ),
           ],
           ),
