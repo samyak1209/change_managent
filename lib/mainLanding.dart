@@ -194,9 +194,10 @@ class MyAppState extends State<MyApp1> {
     final List<double> stops = [0.0, fillStop, fillStop, 1.0];
 
     return ListView(
+
         children: <Widget>[
           Column(children: <Widget>[
-            AppBar(
+            /*AppBar(
               actions: <Widget>[
                 IconButton(icon: Icon(Icons.search,)),
                 IconButton(icon: Icon(Icons.notifications,)),
@@ -211,18 +212,27 @@ class MyAppState extends State<MyApp1> {
                         colors:  [Colors.blue, Colors.green])
                 ),
               ),     //backgroundColor: Color.fromRGBO(99,194,157, 1),
-            ),
+            ),*/
             Stack(children: <Widget>[
 
               Container(decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors:  [Colors.green, Colors.blue],
-                  end: Alignment.center,
-                  begin: Alignment.topCenter,
+                  end: Alignment.topCenter,
+                  begin: Alignment.bottomCenter,
                   //stops: stops,
                 ),
-              ),height: 60,),
-              Container(padding: EdgeInsets.fromLTRB(10, 20, 10, 0),child: Container(height: 100,
+              ),height: 100,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    IconButton(icon: Icon(Icons.search,color: Colors.white,)),
+                    IconButton(icon: Icon(Icons.add_alert,color: Colors.white,)),
+                    IconButton(icon: Icon(Icons.account_circle,color: Colors.white,)),
+                  ],
+                ),),
+              Container(padding: EdgeInsets.fromLTRB(10, 40, 10, 10),child: Container(height: 80,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
@@ -236,7 +246,7 @@ class MyAppState extends State<MyApp1> {
                     CircleAvatar(
                       backgroundImage: NetworkImage(
                           'https://github.com/samyak1209/change_managent/blob/master/Image%201.png?raw=true'),
-                      radius: 40.0,
+                      radius: 30.0,
                     ),
                     SizedBox(width: 20.0,),
                     Column(
@@ -259,7 +269,7 @@ class MyAppState extends State<MyApp1> {
                       ],
                     ),],),),)
             ],),
-            SizedBox(height: 10,),
+            SizedBox(height: 0,),
             CarouselSlider(
                 items: [
                   Container(
@@ -468,7 +478,7 @@ class MyAppState extends State<MyApp1> {
                           children: [
                             SizedBox(width: 20,),
                             InkWell(
-                                child: Text("Article Title",style: TextStyle(color: Colors.blueAccent,fontSize: 25,fontWeight: FontWeight.bold),),
+                                child: Text("Article Title",style: TextStyle(color: Colors.blueAccent,fontSize: 20,fontWeight: FontWeight.bold),),
                                 onTap:(){
                                   //Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> PocPage()));
                                 }
@@ -479,7 +489,7 @@ class MyAppState extends State<MyApp1> {
                         Row(
                           children: [
                             SizedBox(width: 20,),
-                            Text("Subtitle",style: TextStyle(color: Colors.grey,fontSize: 18,fontWeight: FontWeight.bold)),
+                            Text("Subtitle",style: TextStyle(color: Colors.grey,fontSize: 14,fontWeight: FontWeight.bold)),
                           ],
                         ),
                         SizedBox(height: 15,),
@@ -487,13 +497,14 @@ class MyAppState extends State<MyApp1> {
                           margin: EdgeInsets.only(left:22,right: 20 ),
                           child: Text(
                             'Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                            ,style: TextStyle(fontSize: 15), ),
+                            ,style: TextStyle(fontSize: 14), ),
                         ),
+                        SizedBox(height: 15,),
                         Row(
                           children: [
                             SizedBox(width: 20,),
                             InkWell(
-                                child: Text("Article Title",style: TextStyle(color: Colors.blueAccent,fontSize: 25,fontWeight: FontWeight.bold),),
+                                child: Text("Article Title",style: TextStyle(color: Colors.blueAccent,fontSize: 20,fontWeight: FontWeight.bold),),
                                 onTap:(){
                                   //Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> PocPage()));
                                 }
@@ -504,7 +515,7 @@ class MyAppState extends State<MyApp1> {
                         Row(
                           children: [
                             SizedBox(width: 20,),
-                            Text("Subtitle",style: TextStyle(color: Colors.grey,fontSize: 18,fontWeight: FontWeight.bold)),
+                            Text("Subtitle",style: TextStyle(color: Colors.grey,fontSize: 14,fontWeight: FontWeight.bold)),
                           ],
                         ),
                         SizedBox(height: 15,),
@@ -512,12 +523,14 @@ class MyAppState extends State<MyApp1> {
                           margin: EdgeInsets.only(left:22,right: 20 ),
                           child: Text(
                             'Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                            ,style: TextStyle(fontSize: 15), ),
-                        ),Row(
+                            ,style: TextStyle(fontSize: 14), ),
+                        ),
+                        SizedBox(height: 15,),
+                        Row(
                           children: [
                             SizedBox(width: 20,),
                             InkWell(
-                                child: Text("Article Title",style: TextStyle(color: Colors.blueAccent,fontSize: 25,fontWeight: FontWeight.bold),),
+                                child: Text("Article Title",style: TextStyle(color: Colors.blueAccent,fontSize: 20,fontWeight: FontWeight.bold),),
                                 onTap:(){
                                   //Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> PocPage()));
                                 }
@@ -528,7 +541,7 @@ class MyAppState extends State<MyApp1> {
                         Row(
                           children: [
                             SizedBox(width: 20,),
-                            Text("Subtitle",style: TextStyle(color: Colors.grey,fontSize: 18,fontWeight: FontWeight.bold)),
+                            Text("Subtitle",style: TextStyle(color: Colors.grey,fontSize: 14,fontWeight: FontWeight.bold)),
                           ],
                         ),
                         SizedBox(height: 15,),
@@ -536,11 +549,10 @@ class MyAppState extends State<MyApp1> {
                           margin: EdgeInsets.only(left:22,right: 20 ),
                           child: Text(
                             'Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                            ,style: TextStyle(fontSize: 15), ),
+                            ,style: TextStyle(fontSize: 14), ),
                         ),
                       ],)
                   ),
-
                 ],
               ),
 
@@ -582,7 +594,9 @@ class MyAppState extends State<MyApp1> {
             ),
           ],
           bottom: TabBar(
+            indicatorColor: Colors.white,
             tabs: [
+
               Tab(text: 'Objectives'),
               Tab(text: 'Scope',),
               Tab(text: 'Plan'),
