@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+import 'components/Empty.dart';
+
 class MyApp1 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => MyAppState();
@@ -147,13 +149,13 @@ class MyAppState extends State<MyApp1> {
                 ),
 
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.announcement, color: Colors.blueGrey,),
+                  icon: Icon(Icons.info_outline, color: Colors.blueGrey,),
                   title: Text('About', style: TextStyle(
                     color: Colors.blueGrey,
                   ),),
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.calendar_today, color: Colors.blueGrey,),
+                  icon: Icon(Icons.calendar_today_outlined, color: Colors.blueGrey,),
                   title: Text('Calendar', style: TextStyle(
                     color: Colors.blueGrey,
                   ),),
@@ -223,13 +225,19 @@ class MyAppState extends State<MyApp1> {
                   //stops: stops,
                 ),
               ),height: 100,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    IconButton(icon: Icon(Icons.search,color: Colors.white,)),
-                    IconButton(icon: Icon(Icons.add_alert,color: Colors.white,)),
-                    IconButton(icon: Icon(Icons.account_circle,color: Colors.white,)),
+                    Container(child: Image.asset('images/tcslogo.png'),padding: EdgeInsets.only(left: 15,top: 10),),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        IconButton(icon: Icon(Icons.search,color: Colors.white,)),
+                        IconButton(icon: Icon(Icons.add_alert,color: Colors.white,)),
+                        IconButton(icon: Icon(Icons.account_circle,color: Colors.white,)),
+                      ],
+                    ),
                   ],
                 ),),
               Container(padding: EdgeInsets.fromLTRB(10, 40, 10, 10),child: Container(height: 80,
@@ -480,7 +488,7 @@ class MyAppState extends State<MyApp1> {
                             InkWell(
                                 child: Text("Article Title",style: TextStyle(color: Colors.blueAccent,fontSize: 20,fontWeight: FontWeight.bold),),
                                 onTap:(){
-                                  //Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> PocPage()));
+                                  Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> Empty(1)));
                                 }
                             ),
                           ],
@@ -506,7 +514,7 @@ class MyAppState extends State<MyApp1> {
                             InkWell(
                                 child: Text("Article Title",style: TextStyle(color: Colors.blueAccent,fontSize: 20,fontWeight: FontWeight.bold),),
                                 onTap:(){
-                                  //Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> PocPage()));
+                                  Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> Empty(2)));
                                 }
                             ),
                           ],
@@ -532,7 +540,7 @@ class MyAppState extends State<MyApp1> {
                             InkWell(
                                 child: Text("Article Title",style: TextStyle(color: Colors.blueAccent,fontSize: 20,fontWeight: FontWeight.bold),),
                                 onTap:(){
-                                  //Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> PocPage()));
+                                  Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> Empty(3)));
                                 }
                             ),
                           ],
