@@ -1,15 +1,17 @@
+
 import 'dart:convert';
 //import 'dart:html';
 import 'package:changemanagent/components/Video.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:changemanagent/Login/auth.dart';
+import 'mainLanding.dart';
 import 'package:changemanagent/components/AboutUs.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:changemanagent/services/services.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/services.dart';
-
+/*
 class PocPage extends StatefulWidget {
   @override
   _PocPageState createState() => _PocPageState();
@@ -20,10 +22,12 @@ class _PocPageState extends State<PocPage> {
   Future<PocData> Data;
 
   @override
- /* void initState() {
+ */
+/* void initState() {
     super.initState();
     Data=fetchData();
-  }*/
+  }*//*
+
 
   @override
   Widget build(BuildContext context) {
@@ -197,3 +201,183 @@ class PocData{
     return list.map((model) => PocData.fromJson(model)).toList();
   }
 }
+*/
+/*class PocPage extends StatefulWidget {
+  @override
+  _PocPageState createState() => _PocPageState();
+}
+
+class _PocPageState extends State<PocPage> {
+  final subtitle = ["Who is change agent?", "Change agent’s responsibilities"];
+  final para = [
+    "Lorem ipsum dolor sit amet, consectetur adipis cing elit, sed do eiusmod tempor incididunt ut labore et dgolore…","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[300],
+      body: ListView(
+        children: [
+          Column(
+            children: [
+              Stack(children: <Widget>[
+
+                Container(decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors:  [Colors.green, Colors.blue],
+                    end: Alignment.topCenter,
+                    begin: Alignment.bottomCenter,
+                    //stops: stops,
+                  ),
+                ),height: 150,
+                  child: Column(
+                    children: [
+                      SizedBox(height: 20,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          IconButton(icon: Icon(Icons.arrow_back,color: Colors.white,),),
+                          Column(
+                            children: [
+                              SizedBox(height: 10,),
+                              InkWell(
+                                  child: Text("Back", style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                  ),),
+                                  onTap:(){
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => More_screen(),
+                                      ),
+                                    );
+                                  }
+                              ),
+                            ],
+                          ),
+                          SizedBox(width:130 ,),
+                          IconButton(icon: Icon(Icons.search,color: Colors.white,)),
+                          IconButton(icon: Icon(Icons.add_alert,color: Colors.white,)),
+                          IconButton(icon: Icon(Icons.account_circle,color: Colors.white,)),
+                        ],
+                      ),
+                    ],
+                  ),),
+                Container(padding: EdgeInsets.fromLTRB(20,  80, 20, 20),child: Container(height: 220,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topLeft:  const  Radius.circular(30.0),
+                        topRight: const  Radius.circular(30.0),
+                        bottomLeft: const Radius.circular(30.0),
+                        bottomRight: const Radius.circular(30.0),
+                      )),padding: EdgeInsets.only(left: 20,top: 20,bottom: 20)
+                  ,child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            backgroundImage: NetworkImage(
+                                'https://github.com/samyak1209/change_managent/blob/master/Image%201.png?raw=true'),
+                            radius: 37.0,
+                          ),
+                          SizedBox(width: 20.0,),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(height: 10,),
+                              Text('Hello,',
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 5.0,),
+                              Text('John Smith',
+                                style: TextStyle(
+                                    fontSize: 15.0,
+                                    color: Colors.black
+                                ),),
+                              SizedBox(height: 20,),
+                              *//* *//*
+                            ],
+                          ),
+
+
+                        ],),
+                      SizedBox(height: 20,),
+                      Container(
+                        height:1.0,
+                        width:320.0,
+                        color:Colors.grey,),
+                      SizedBox(height: 20,),
+                      Row(
+                        children: [
+                          Text("Change Agent Name: ",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),),
+                          Text("Mitchell Nova"),
+
+                        ],
+                      ),
+                      SizedBox(height: 5,),
+                      Text("+91 12345 67890"),
+                      SizedBox(height: 5,),
+                      Text("michell.nova@mail.com"),
+
+                    ],
+                  ),
+                ),
+                )
+              ],
+              ),
+              SizedBox(height: 10,),
+            ],
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 25,right: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text("Who is change agent?",style: TextStyle(
+                  color: Colors.blueAccent,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 23,
+                ),),
+                SizedBox(height: 20,),
+                Text("Lorem ipsum dolor sit amet, consectetur adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                ),),
+                SizedBox(height: 20,),
+                Container(
+                  height:1.0,
+                  width:500.0,
+                  color:Colors.grey,),
+                SizedBox(height: 20,),
+                Text("Change agent’s responsibilities",style: TextStyle(
+                  color: Colors.blueAccent,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 23,
+                ),),
+                SizedBox(height: 20,),
+                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.",style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                ),),
+
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}*/

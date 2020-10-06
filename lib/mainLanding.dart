@@ -101,7 +101,8 @@ class MyAppState extends State<MyApp1> {
     final tabs=[home(context),
       secondscreen(),
       Center(child: Text('Connect'),),
-      Center(child: Text('Training'),),
+      More_screen(),
+      PocPage(),
     ];
 
     return new MaterialApp(
@@ -114,26 +115,6 @@ class MyAppState extends State<MyApp1> {
         home: Scaffold(
             backgroundColor: Color.fromRGBO(242,242,242, 1),
             key: scaffoldKey,
-            /*drawer: new Drawer(
-          child: new ListView(),
-        ),*/
-            /*appBar: new AppBar(
-          actions: <Widget>[
-            IconButton(icon: Icon(Icons.search,)),
-            IconButton(icon: Icon(Icons.notifications,)),
-            IconButton(icon: Icon(Icons.supervised_user_circle,)),
-          ],
-          title: Image.asset('images/tcslogo.png'),flexibleSpace: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: <Color>[
-                    Color.fromRGBO(99,194,157, 1),
-                    Color.fromRGBO(61,133,198, 1),
-                  ])
-          ),
-        ),      ),*/
             bottomNavigationBar: BottomNavigationBar(
               onTap: (index){setState(() {
                 curindex=index;
@@ -224,10 +205,10 @@ class MyAppState extends State<MyApp1> {
                   begin: Alignment.bottomCenter,
                   //stops: stops,
                 ),
-              ),height: 100,
+              ),height: 110,
                 child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(child: Image.asset('images/tcslogo.png'),padding: EdgeInsets.only(left: 15,top: 10),),
+                    Container(child: Image.asset('images/tcslogo.png',height: 25,),padding: EdgeInsets.only(left: 5,top: 15),),
 
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -240,7 +221,7 @@ class MyAppState extends State<MyApp1> {
                     ),
                   ],
                 ),),
-              Container(padding: EdgeInsets.fromLTRB(10, 40, 10, 10),child: Container(height: 80,
+              Container(padding: EdgeInsets.fromLTRB(10, 55, 10, 10),child: Container(height: 80,
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
@@ -486,9 +467,10 @@ class MyAppState extends State<MyApp1> {
                           children: [
                             SizedBox(width: 20,),
                             InkWell(
-                                child: Text("Article Title",style: TextStyle(color: Colors.blueAccent,fontSize: 20,fontWeight: FontWeight.bold),),
+                                child: Text("Customer Migrations",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                                 onTap:(){
-                                  Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> Empty(1)));
+
+                                  Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> Artile_one()));
                                 }
                             ),
                           ],
@@ -497,24 +479,25 @@ class MyAppState extends State<MyApp1> {
                         Row(
                           children: [
                             SizedBox(width: 20,),
-                            Text("Subtitle",style: TextStyle(color: Colors.grey,fontSize: 14,fontWeight: FontWeight.bold)),
+                            Text("Siyakhula programme",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold)),
                           ],
                         ),
                         SizedBox(height: 15,),
                         Container(
                           margin: EdgeInsets.only(left:22,right: 20 ),
                           child: Text(
-                            'Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                            ,style: TextStyle(fontSize: 14), ),
+                            'Siyakhula programme will be continuing with the sixth drop of the CBU Post-Paid customer migrations from the legacy system to iLula.'
+                            ,style: TextStyle(fontSize: 14,letterSpacing: 0.6), ),
                         ),
-                        SizedBox(height: 15,),
+                        SizedBox(height: 10,),
+                        Divider(height: 15,thickness: 0.5,),
                         Row(
                           children: [
                             SizedBox(width: 20,),
                             InkWell(
-                                child: Text("Article Title",style: TextStyle(color: Colors.blueAccent,fontSize: 20,fontWeight: FontWeight.bold),),
+                                child: Text("iLula Support for stores",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                                 onTap:(){
-                                  Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> Empty(2)));
+                                  Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> SecondArticle()));
                                 }
                             ),
                           ],
@@ -523,24 +506,25 @@ class MyAppState extends State<MyApp1> {
                         Row(
                           children: [
                             SizedBox(width: 20,),
-                            Text("Subtitle",style: TextStyle(color: Colors.grey,fontSize: 14,fontWeight: FontWeight.bold)),
+                            Text("iLula team",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold)),
                           ],
                         ),
                         SizedBox(height: 15,),
                         Container(
                           margin: EdgeInsets.only(left:22,right: 20 ),
                           child: Text(
-                            'Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                            ,style: TextStyle(fontSize: 14), ),
+                            'iLula team will be actively supporting during the lockdown period. If the stores encounter a challenge in iLula, please follow the below steps (applicable for active stores in lockdown period.'
+                            ,style: TextStyle(fontSize: 14,letterSpacing: 0.6), ),
                         ),
-                        SizedBox(height: 15,),
+                        SizedBox(height: 10,),
+                        Divider(height: 15,thickness: 0.5,),
                         Row(
                           children: [
                             SizedBox(width: 20,),
                             InkWell(
-                                child: Text("Article Title",style: TextStyle(color: Colors.blueAccent,fontSize: 20,fontWeight: FontWeight.bold),),
+                                child: Text("iLula Adoption Report",style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                                 onTap:(){
-                                  Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> Empty(3)));
+                                  Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> ThirdArticle()));
                                 }
                             ),
                           ],
@@ -549,16 +533,18 @@ class MyAppState extends State<MyApp1> {
                         Row(
                           children: [
                             SizedBox(width: 20,),
-                            Text("Subtitle",style: TextStyle(color: Colors.grey,fontSize: 14,fontWeight: FontWeight.bold)),
+                            Text("KZN Region",style: TextStyle(fontSize: 14,fontWeight: FontWeight.bold)),
                           ],
                         ),
                         SizedBox(height: 15,),
                         Container(
                           margin: EdgeInsets.only(left:22,right: 20 ),
                           child: Text(
-                            'Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                            ,style: TextStyle(fontSize: 14), ),
+                            'SASs and Supervisors to check with stores and agents for low count of completed orders. Questions we need to ask - There are stores and agents which are performing many transactions in iLula, why are some stores/agents lagging.'
+                            ,style: TextStyle(fontSize: 14,letterSpacing: 0.6), ),
                         ),
+                        SizedBox(height: 10,),
+                        Divider(height: 15,thickness: 0.5,),
                       ],)
                   ),
                 ],
@@ -674,17 +660,17 @@ class _FirstScreenState extends State<FirstScreen> {
                           color: Colors.black,
                           fontSize: 20,
                           fontWeight: FontWeight.bold),),
-                      /* onTap:(){
-                          if(index==0){
-                            Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> EmptyScreen()));
+                       onTap:(){
+                          /*if(index==0){
+                            Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> Artile_one()));
                           }
                           else if(index==1){
-                            Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> EmptyScreen()));
+                            Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> SecondArticle()));
                           }
                           else{
-                            Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> EmptyScreen()));
-                          }
-                        }*/
+                            Navigator.of(context).push(new MaterialPageRoute(builder: (context)=> ThirdArticle()));
+                          }*/
+                        }
                     ),
                   ),
                   dense: true,
@@ -723,6 +709,96 @@ class SecondScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 21),)
             )
         )
+    );
+  }
+}
+class More_screen extends StatefulWidget {
+  @override
+  _More_screenState createState() => _More_screenState();
+}
+
+class _More_screenState extends State<More_screen> {
+  final color=[Colors.deepOrange,Colors.green,Colors.blueAccent,Colors.pinkAccent,Colors.pink,Colors.purple];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Image.asset('images/tcslogo.png'),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: <Color>[
+                    Colors.yellow,
+                    Colors.deepOrange
+                  ])
+          ),
+        ),
+        actions: [
+          Row(
+            children: [
+              IconButton(
+                  icon: Icon(Icons.search,color: Colors.white,),
+                  onPressed: null),
+              IconButton(
+                  icon: Icon(Icons.add_alert,color: Colors.white,),
+                  onPressed: null),
+              IconButton(
+                  icon: Icon(Icons.account_circle,color: Colors.white,),
+                  onPressed: null),
+            ],
+          ),
+        ],
+      ),
+      body: buildPhoneGridView(),
+    );
+  }
+  GridView buildPhoneGridView(){
+    return GridView.count(
+      crossAxisCount:2,
+      //childAspectRatio: 3/2,
+      children:List.generate(6, (index){
+        return Card(
+          margin: EdgeInsets.symmetric(vertical: 20,horizontal: 20),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomRight: Radius.circular(20),
+                topRight: Radius.circular(20),
+                topLeft: Radius.circular(20),
+                bottomLeft: Radius.circular(20)
+            ),
+          ),
+          child: Container(
+            alignment: Alignment.center,
+            child: Column(
+              children: [
+                SizedBox(height: 30,),
+                InkWell(
+                    child: Text("Change Agent", style: TextStyle(
+                        color: color[index],
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold),),
+                    onTap:(){
+                      if(index==0)
+                      {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => PocPage(),
+                          ),
+                        );
+                      }
+                    }
+                ),
+
+              ],
+
+            ),
+          ),
+
+        );
+      }),
     );
   }
 }
@@ -794,6 +870,180 @@ class MyCustomContainer extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+class PocPage extends StatefulWidget {
+  @override
+  _PocPageState createState() => _PocPageState();
+}
+
+class _PocPageState extends State<PocPage> {
+  final subtitle = ["Who is change agent?", "Change agent’s responsibilities"];
+  final para = [
+    "Lorem ipsum dolor sit amet, consectetur adipis cing elit, sed do eiusmod tempor incididunt ut labore et dgolore…","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi."
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[300],
+      body: ListView(
+        children: [
+          Column(
+            children: [
+              Stack(children: <Widget>[
+
+                Container(decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors:  [Colors.green, Colors.blue],
+                    end: Alignment.topCenter,
+                    begin: Alignment.bottomCenter,
+                    //stops: stops,
+                  ),
+                ),height: 150,
+                  child: Column(
+                    children: [
+                      SizedBox(height: 20,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          IconButton(icon: Icon(Icons.arrow_back,color: Colors.white,),),
+                          Column(
+                            children: [
+                              SizedBox(height: 10,),
+                              InkWell(
+                                  child: Text("Back", style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                  ),),
+                                  onTap:(){
+                                    Navigator.pop(context);
+                                  }
+                              ),
+                            ],
+                          ),
+                          SizedBox(width:130 ,),
+                          IconButton(icon: Icon(Icons.search,color: Colors.white,)),
+                          IconButton(icon: Icon(Icons.add_alert,color: Colors.white,)),
+                          IconButton(icon: Icon(Icons.account_circle,color: Colors.white,)),
+                        ],
+                      ),
+                    ],
+                  ),),
+                Container(padding: EdgeInsets.fromLTRB(20,  80, 20, 20),child: Container(height: 220,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topLeft:  const  Radius.circular(30.0),
+                        topRight: const  Radius.circular(30.0),
+                        bottomLeft: const Radius.circular(30.0),
+                        bottomRight: const Radius.circular(30.0),
+                      )),padding: EdgeInsets.only(left: 20,top: 20,bottom: 20)
+                  ,child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            backgroundImage: NetworkImage(
+                                'https://github.com/samyak1209/change_managent/blob/master/Image%201.png?raw=true'),
+                            radius: 37.0,
+                          ),
+                          SizedBox(width: 20.0,),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(height: 10,),
+                              Text('Hello,',
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: 5.0,),
+                              Text('John Smith',
+                                style: TextStyle(
+                                    fontSize: 15.0,
+                                    color: Colors.black
+                                ),),
+                              SizedBox(height: 20,),
+                              /* */
+                            ],
+                          ),
+
+
+                        ],),
+                      SizedBox(height: 20,),
+                      Container(
+                        height:1.0,
+                        width:320.0,
+                        color:Colors.grey,),
+                      SizedBox(height: 20,),
+                      Row(
+                        children: [
+                          Text("Change Agent Name: ",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),),
+                          Text("Mitchell Nova"),
+
+                        ],
+                      ),
+                      SizedBox(height: 5,),
+                      Text("+91 12345 67890"),
+                      SizedBox(height: 5,),
+                      Text("michell.nova@mail.com"),
+
+                    ],
+                  ),
+                ),
+                )
+              ],
+              ),
+              SizedBox(height: 10,),
+            ],
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 25,right: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text("Who is change agent?",style: TextStyle(
+                  color: Colors.blueAccent,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 23,
+                ),),
+                SizedBox(height: 20,),
+                Text("Lorem ipsum dolor sit amet, consectetur adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                ),),
+                SizedBox(height: 20,),
+                Container(
+                  height:1.0,
+                  width:500.0,
+                  color:Colors.grey,),
+                SizedBox(height: 20,),
+                Text("Change agent’s responsibilities",style: TextStyle(
+                  color: Colors.blueAccent,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 23,
+                ),),
+                SizedBox(height: 20,),
+                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.",style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18,
+                ),),
+
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
