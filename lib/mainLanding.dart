@@ -2,6 +2,7 @@ import 'package:changemanagent/POC.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'components/Empty.dart';
 
@@ -15,12 +16,12 @@ class MyAppState extends State<MyApp1> {
   static Container pic1(){
     return Container(
       padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
+      decoration: BoxDecoration(color: Color.fromRGBO(204,229,255,10),
+          /*gradient: LinearGradient(
             colors: [Colors.yellow, Colors.deepOrange],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-          ),
+          ),*/
           borderRadius: new BorderRadius.only(
             topLeft:  const  Radius.circular(30.0),
             topRight: const  Radius.circular(30.0),
@@ -33,12 +34,12 @@ class MyAppState extends State<MyApp1> {
   static Container pic3(){
     return Container(
       padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-          gradient: LinearGradient(
+      decoration: BoxDecoration(color: Color.fromRGBO(204,229,255,10),
+         /* gradient: LinearGradient(
             colors: [Colors.green, Colors.lightBlueAccent],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-          ),
+          ),*/
           borderRadius: new BorderRadius.only(
             topLeft:  const  Radius.circular(30.0),
             topRight: const  Radius.circular(30.0),
@@ -52,11 +53,11 @@ class MyAppState extends State<MyApp1> {
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-          gradient: LinearGradient(
+          /*gradient: LinearGradient(
             colors: [Colors.pinkAccent, Colors.deepPurple],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-          ),
+          ),*/color: Color.fromRGBO(255,204,153,10),
           borderRadius: new BorderRadius.only(
             topLeft:  const  Radius.circular(30.0),
             topRight: const  Radius.circular(30.0),
@@ -274,17 +275,15 @@ class MyAppState extends State<MyApp1> {
                       children: [
                         pic1(),
                         SizedBox(width: 10,),
-                        Container(child :Align(child:InkWell(
-                            child: Text("Go",style: TextStyle(color: Colors.white,fontSize: 20),),
-                            onTap:(){
-                              /*Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => PocPage(),
-                                ),
-                              );*/
-                            }
-                        ),alignment: Alignment.bottomLeft,),padding: EdgeInsets.all(10),)
+                        Container(child :Align(child:Image.asset('images/Picture1.png',height: 130,width: 130,),
+                          alignment: Alignment.centerLeft,),padding: EdgeInsets.all(15),),
+                        Container(child :Align(child:Text('Day in a Life of\n Purchase Manager',textAlign: TextAlign.center,style: TextStyle(color: Color.fromRGBO(204,102,0,10),fontSize: 15,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold),),
+                          alignment: Alignment.topRight,),padding: EdgeInsets.only(top: 40,right: 25)),
+                        Container(child :Align(child:GestureDetector(child:Text('Click Here to View',textAlign: TextAlign.center,style: TextStyle(color: Color.fromRGBO(204,102,0,10),fontSize: 15,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold),),
+                        onTap: (){
+                          _launchURL('https://youtu.be/OwVrEmwCuew');
+                        },),
+                          alignment: Alignment.bottomRight,),padding: EdgeInsets.only(bottom: 60,right: 25))
                       ],
                     ),
 
@@ -305,19 +304,26 @@ class MyAppState extends State<MyApp1> {
                       children: [
                         pic2(),
                         SizedBox(width: 10,),
-                        Container(child :Align(child:InkWell(
+                        /*Container(child :Align(child:InkWell(
                             child: Text("Go",style: TextStyle(color: Colors.white,fontSize: 20),),
                             onTap:(){
-                              /*Navigator.push(
+                              *//*Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => PocPage(),
                                 ),
-                              );*/
+                              );*//*
                             }
                         ),alignment: Alignment.bottomLeft,),padding: EdgeInsets.all(10),),
                         Container(child: Align(alignment: Alignment.centerRight,child: Image.asset('images/cc.png',),),padding: EdgeInsets.only(right: 20),),
-                        Container(child: Align(alignment: Alignment.topLeft,child: Text('Promo title',style: TextStyle(color: Colors.white,fontSize: 20),),),padding: EdgeInsets.all(30),)
+                        Container(child: Align(alignment: Alignment.topLeft,child: Text('Promo title',style: TextStyle(color: Colors.white,fontSize: 20),),),padding: EdgeInsets.all(30),)*/
+                        Container(child :Align(child:Image.asset('images/Picture2.png',height: 100,width: 100,),
+                          alignment: Alignment.centerLeft,),padding: EdgeInsets.all(15),),
+                        Container(child :Align(child:Text('Share your opinion\n\n Respond to survey',textAlign: TextAlign.center,style: TextStyle(color: Color.fromRGBO(204,102,0,10),fontSize: 15,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold),),
+                          alignment: Alignment.topRight,),padding: EdgeInsets.only(top: 40,right: 25)),
+                        Container(child :Align(child:GestureDetector(child:Text('Click Here to Respond',textAlign: TextAlign.center,style: TextStyle(color: Color.fromRGBO(204,102,0,10),fontSize: 15,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold),),
+                          onTap: (){_launchURL('https://www.surveymonkey.com/r/CRW5B2F');},),
+                          alignment: Alignment.bottomRight,),padding: EdgeInsets.only(bottom: 50,right: 20))
                       ],
                     ),
                   ),
@@ -334,17 +340,14 @@ class MyAppState extends State<MyApp1> {
                       children: [
                         pic3(),
                         SizedBox(width: 10,),
-                        Container(child :Align(child:InkWell(
-                            child: Text("Go",style: TextStyle(color: Colors.white,fontSize: 20),),
-                            onTap:(){
-                              /*Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => PocPage(),
-                                ),
-                              );*/
-                            }
-                        ),alignment: Alignment.bottomLeft,),padding: EdgeInsets.all(10),)
+                        Container(child :Align(child:Image.asset('images/Picture3.png',height: 110,width: 110,),
+                          alignment: Alignment.centerLeft,),padding: EdgeInsets.all(15),),
+                        Container(child :Align(child:Text('Exciting Prizes to be\n won',textAlign: TextAlign.center,style: TextStyle(color: Color.fromRGBO(204,102,0,10),fontSize: 15,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold),),
+                          alignment: Alignment.topRight,),padding: EdgeInsets.only(top: 40,right: 25)),
+                        Container(child :Align(child:GestureDetector(child:Text('Click Here to\n Participate in the Quiz',textAlign: TextAlign.center,style: TextStyle(color: Color.fromRGBO(204,102,0,10),fontSize: 15,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold),),
+                          onTap: (){
+                          },),
+                          alignment: Alignment.bottomRight,),padding: EdgeInsets.only(bottom: 40,right: 15))
                       ],
                     ),
                   ),
@@ -381,7 +384,7 @@ class MyAppState extends State<MyApp1> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Container(
+                  /*Container(
                     padding: EdgeInsets.all(8),
                     decoration: new BoxDecoration(
                         color: Colors.white,
@@ -395,10 +398,10 @@ class MyAppState extends State<MyApp1> {
                     ),
                     child: Column(
                       children: [
-                        /*Row(mainAxisAlignment: MainAxisAlignment.start,
+                        *//*Row(mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             //SizedBox(height: 5,),
-                            *//*Container(
+                            *//**//*Container(
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color:Colors.grey,
@@ -408,7 +411,7 @@ class MyAppState extends State<MyApp1> {
                                 onPressed: (){},
                               ),
                             ),
-*//*
+*//**//*
                             //SizedBox(width: 100,),
                             Center(
                               child:Text('Articles',
@@ -418,7 +421,7 @@ class MyAppState extends State<MyApp1> {
                                 ),),
                             ),
                             //SizedBox(width: 100,),
-                            *//*Container(
+                            *//**//*Container(
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color:Colors.blueAccent,
@@ -427,10 +430,10 @@ class MyAppState extends State<MyApp1> {
                                 icon: Icon(Icons.navigate_next,color: Colors.white,),
                                 onPressed: (){},
                               ),
-                            ),*//*
+                            ),*//**//*
                           ],
-                        ),*/
-                        Container(
+                        ),*//*
+                        *//*Container(
                           margin: EdgeInsets.only(left: 20,right: 20),
                           padding: EdgeInsets.all(12),
                           decoration: new BoxDecoration(
@@ -450,13 +453,13 @@ class MyAppState extends State<MyApp1> {
                                 fontSize: 20,
                               ),),
                           ),
-                        ),
+                        ),*//*
 
                       ],
 
                     ),
 
-                  ),
+                  ),*/
                   SizedBox(height: 10,),
                   Container(padding: EdgeInsets.all(10),
                       child:
@@ -601,7 +604,7 @@ class MyAppState extends State<MyApp1> {
         body: TabBarView(
           children: [
             FirstScreen(),
-            SecondScreen(),
+            objective(),
             ThirdScreen(),
             ForthScreen()
           ],
@@ -1044,6 +1047,196 @@ class _PocPageState extends State<PocPage> {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+_launchURL(url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+class objective extends StatefulWidget {
+  @override
+  _objectiveState createState() => _objectiveState();
+}
+
+class _objectiveState extends State<objective> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView(
+        children: [
+          Container(
+            padding: EdgeInsets.all(20.0),
+            child:Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Text("Objectives – SCOPE",style: TextStyle(fontWeight: FontWeight.bold),),
+                ),
+                SizedBox(height: 20,),
+                Text("In the current telecommunication market evolution, the best opportunities for growth now centre on digital offerings in such areas as content delivery, cloud-based services, and even big data and analytics as some operators have started to monetize the information they capture in the course of business.",textAlign: TextAlign.justify,),
+                SizedBox(height: 10,),
+                Text("For this reason, we embarked on the Siyakhula Transformation Programme in late 2016 to transform business processes, operations, and a complex IT legacy landscape. This will be achieved by an agile implementation approach with delivery and improvements in a phased roll-out.The main pillars of this transformation programme inter alia support a robust and flexible environment powered by an open integration framework from a technology base that compliments initiatives to increase revenue, decrease churn and provide a superior customer experience. The programme is business led with sponsorship from the CEO, COO and Exco members.",textAlign: TextAlign.justify,),
+                SizedBox(height: 20,),
+                Text("Below are some of the key objectives defined in the programme and an update on the progress.",textAlign: TextAlign.justify,),
+                SizedBox(height: 20,),
+                Text("Business Objectives",style: TextStyle(fontWeight: FontWeight.bold,decoration: TextDecoration.underline),),
+                Column(
+                  children: [
+                    Row(
+                      children: [
+                        SizedBox(width: 15,),
+                        MyBullet(),
+                        SizedBox(width: 10,),
+                        Expanded(flex:2,child:Text("Single integrated view of the customer"),),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(width: 15,),
+                        MyBullet(),
+                        SizedBox(width: 10,),
+                        Expanded(flex:2,child:Text("Increase customer satisfaction"),),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(width: 15,),
+                        MyBullet(),
+                        SizedBox(width: 10,),
+                        Expanded(flex:2,child:Text("Differentiate and transform on a digital level"),),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(width: 15,),
+                        MyBullet(),
+                        SizedBox(width: 10,),
+                        Expanded(flex:2,child:Text("Billing transformation"),)
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(width: 15,),
+                        MyBullet(),
+                        SizedBox(width: 10,),
+                        Expanded(flex:2,child:Text("Product simplification and rationalization"),)
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(width: 15,),
+                        MyBullet(),
+                        SizedBox(width: 10,),
+                        Expanded(flex:2,child:Text("Enhanced self-service capability"),),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(width: 15,),
+                        MyBullet(),
+                        SizedBox(width: 10,),
+                        Expanded(flex:2,child:Text("Business process agility and standardization"),),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(width: 15,),
+                        MyBullet(),
+                        SizedBox(width: 10,),
+                        Expanded(flex:2,child:Text("Improved and shorter product time to market"),),
+                      ],
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10,),
+                Text("Technology Objectives",style: TextStyle(fontWeight: FontWeight.bold,decoration: TextDecoration.underline),),
+                Column(
+                  children: [
+                    Row(
+                      children: [
+                        SizedBox(width: 15,),
+                        MyBullet(),
+                        SizedBox(width: 10,),
+                        Expanded(flex:2,child:Text("Open integration framework"),),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(width: 15,),
+                        MyBullet(),
+                        SizedBox(width: 10,),
+                        Expanded(flex:2,child:Text("Architecture that is fit for the future"),),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(width: 15,),
+                        MyBullet(),
+                        SizedBox(width: 10,),
+                        Expanded(flex:2,child:Text("Reduced system complexity"),),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(width: 15,),
+                        MyBullet(),
+                        SizedBox(width: 10,),
+                        Expanded(flex:2,child:Text("More robust and re-usable micro-services"),),
+                      ],
+                    ),
+                    Row(
+                      //crossAxisAlignment: CrossAxisAlignment.start,
+                      //mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(width: 15,),
+                        MyBullet(),
+                        SizedBox(width: 10,),
+                        Expanded(flex:2,child:Text("Data Analytics and Business Intelligence capabilities"),),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(width: 15,),
+                        MyBullet(),
+                        SizedBox(width: 10,),
+                        Expanded(flex:2,child:Text("End-to-end control and user governance in systems"),),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        SizedBox(width: 15,),
+                        MyBullet(),
+                        SizedBox(width: 10,),
+                        Expanded(child:Text("Legacy rationalization and sun-set strategy"),),
+                      ],
+                    ),
+                  ],
+                ),
+
+              ],
+
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+class MyBullet extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return new Container(
+      height: 5.0,
+      width: 5.0,
+      decoration: new BoxDecoration(
+        color: Colors.black,
+        shape: BoxShape.circle,
       ),
     );
   }

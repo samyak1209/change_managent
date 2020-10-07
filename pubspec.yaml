@@ -53,6 +53,9 @@ flutter:
       - images/tcslogo.png
       - images/user.png
       - images/cc.png
+      - images/Picture1.png
+      - images/Picture2.png
+      - images/Picture3.png
 
 
   # To add assets to your application, add an assets section, like this:
