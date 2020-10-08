@@ -31,6 +31,7 @@ dependencies:
   firebase_database: ^3.1.6
   video_player: ^0.10.11+2
   carousel_slider: ^1.4.1
+  syncfusion_flutter_calendar: ^18.2.59
 
 dev_dependencies:
   flutter_test:

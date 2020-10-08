@@ -13,7 +13,7 @@ class _VideoPageState extends State<VideoPage> {
 
   @override
   void initState() {
-    video = VideoPlayerController.network("https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4");
+    video = VideoPlayerController.network("https://github.com/samyak1209/change_managent/blob/master/TcsVideo.mp4?raw=true");
     //video=VideoPlayerController.asset('images/sampleVideo.mp4');
     initialiseVideo=video.initialize();
     video.setLooping(true);
@@ -30,9 +30,34 @@ class _VideoPageState extends State<VideoPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
-        title: Text('Video'),
-        centerTitle: true,
+      appBar: AppBar(
+        title: Image.asset('images/tcslogo.png'),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: <Color>[
+                    Color.fromRGBO(99,194,157,1),
+                    Color.fromRGBO(61,133,198,1)
+                  ])
+          ),
+        ),
+        actions: [
+          Row(
+            children: [
+              IconButton(
+                  icon: Icon(Icons.search,color: Colors.white,),
+                  onPressed: null),
+              IconButton(
+                  icon: Icon(Icons.add_alert,color: Colors.white,),
+                  onPressed: null),
+              IconButton(
+                  icon: Icon(Icons.account_circle,color: Colors.white,),
+                  onPressed: null),
+            ],
+          ),
+        ],
       ),
       body: ListView(
         children: <Widget>[
@@ -41,8 +66,8 @@ class _VideoPageState extends State<VideoPage> {
             builder: (context,snapshot){
               if(snapshot.connectionState==ConnectionState.done){
                 return AspectRatio(
-                  //aspectRatio: video.value.aspectRatio,
-                  aspectRatio: 0.9,
+                  aspectRatio: video.value.aspectRatio,
+                  //aspectRatio: 0.9,
                   child: VideoPlayer(video),
                 );
               }

@@ -1,7 +1,9 @@
 import 'package:changemanagent/POC.dart';
+import 'package:changemanagent/components/Video.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:syncfusion_flutter_calendar/calendar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'components/Empty.dart';
@@ -16,12 +18,12 @@ class MyAppState extends State<MyApp1> {
   static Container pic1(){
     return Container(
       padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(color: Color.fromRGBO(204,229,255,10),
-          /*gradient: LinearGradient(
+      decoration: BoxDecoration(//color: Color.fromRGBO(204,229,255,10),
+          gradient: LinearGradient(
             colors: [Colors.yellow, Colors.deepOrange],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-          ),*/
+          ),
           borderRadius: new BorderRadius.only(
             topLeft:  const  Radius.circular(30.0),
             topRight: const  Radius.circular(30.0),
@@ -34,12 +36,12 @@ class MyAppState extends State<MyApp1> {
   static Container pic3(){
     return Container(
       padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(color: Color.fromRGBO(204,229,255,10),
-         /* gradient: LinearGradient(
+      decoration: BoxDecoration(//color: Color.fromRGBO(204,229,255,10),
+          gradient: LinearGradient(
             colors: [Colors.green, Colors.lightBlueAccent],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-          ),*/
+          ),
           borderRadius: new BorderRadius.only(
             topLeft:  const  Radius.circular(30.0),
             topRight: const  Radius.circular(30.0),
@@ -53,11 +55,11 @@ class MyAppState extends State<MyApp1> {
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-          /*gradient: LinearGradient(
+          gradient: LinearGradient(
             colors: [Colors.pinkAccent, Colors.deepPurple],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-          ),*/color: Color.fromRGBO(255,204,153,10),
+          ),//color: Color.fromRGBO(255,204,153,10),
           borderRadius: new BorderRadius.only(
             topLeft:  const  Radius.circular(30.0),
             topRight: const  Radius.circular(30.0),
@@ -101,9 +103,8 @@ class MyAppState extends State<MyApp1> {
   Widget build(BuildContext context) {
     final tabs=[home(context),
       secondscreen(),
-      Center(child: Text('Connect'),),
+      MyApp2(),
       More_screen(),
-      PocPage(),
     ];
 
     return new MaterialApp(
@@ -262,6 +263,7 @@ class MyAppState extends State<MyApp1> {
             SizedBox(height: 0,),
             CarouselSlider(
                 items: [
+                  GestureDetector(child:
                   Container(
                     margin: EdgeInsets.all(5.0),
                     padding: EdgeInsets.only(left: 5,bottom: 10),
@@ -270,33 +272,31 @@ class MyAppState extends State<MyApp1> {
 
                     ),
                     child:  Stack(
-                      //mainAxisAlignment: MainAxisAlignment.start,
-                      // crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         pic1(),
                         SizedBox(width: 10,),
-                        Container(child :Align(child:Image.asset('images/Picture1.png',height: 130,width: 130,),
+                        Container(child :Align(child:Image.asset('images/Picture1.png',height: 115,width: 115,),
                           alignment: Alignment.centerLeft,),padding: EdgeInsets.all(15),),
-                        Container(child :Align(child:Text('Day in a Life of\n Purchase Manager',textAlign: TextAlign.center,style: TextStyle(color: Color.fromRGBO(204,102,0,10),fontSize: 15,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold),),
+                        Container(child :Align(child:Text('Day in a Life of\n Purchase Manager',textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
                           alignment: Alignment.topRight,),padding: EdgeInsets.only(top: 40,right: 25)),
-                        Container(child :Align(child:GestureDetector(child:Text('Click Here to View',textAlign: TextAlign.center,style: TextStyle(color: Color.fromRGBO(204,102,0,10),fontSize: 15,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold),),
-                        onTap: (){
-                          _launchURL('https://youtu.be/OwVrEmwCuew');
-                        },),
+                        Container(child :Align(child:Text('Click Here to View',textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                        /*onTap: (){
+                          Navigator.of(context).push(new MaterialPageRoute(builder: (context)=>new VideoPage()));
+                        },*/
                           alignment: Alignment.bottomRight,),padding: EdgeInsets.only(bottom: 60,right: 25))
                       ],
                     ),
 
                   ),
+                    onTap: (){
+                      Navigator.of(context).push(new MaterialPageRoute(builder: (context)=>new VideoPage()));
+                    },),
+                  GestureDetector(child:
                   Container(
                     margin: EdgeInsets.all(5.0),
                     padding: EdgeInsets.all(15.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20.0),
-                      /*image: DecorationImage(
-                        image: NetworkImage('https://homepages.cae.wisc.edu/~ece533/images/cat.png'),
-                        fit: BoxFit.cover,
-                      ),*/
                     ),
                     child: Stack(
                       //mainAxisAlignment: MainAxisAlignment.start,
@@ -304,29 +304,16 @@ class MyAppState extends State<MyApp1> {
                       children: [
                         pic2(),
                         SizedBox(width: 10,),
-                        /*Container(child :Align(child:InkWell(
-                            child: Text("Go",style: TextStyle(color: Colors.white,fontSize: 20),),
-                            onTap:(){
-                              *//*Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => PocPage(),
-                                ),
-                              );*//*
-                            }
-                        ),alignment: Alignment.bottomLeft,),padding: EdgeInsets.all(10),),
-                        Container(child: Align(alignment: Alignment.centerRight,child: Image.asset('images/cc.png',),),padding: EdgeInsets.only(right: 20),),
-                        Container(child: Align(alignment: Alignment.topLeft,child: Text('Promo title',style: TextStyle(color: Colors.white,fontSize: 20),),),padding: EdgeInsets.all(30),)*/
-                        Container(child :Align(child:Image.asset('images/Picture2.png',height: 100,width: 100,),
+                        Container(child :Align(child:Image.asset('images/Picture2.png',height: 90,width: 90,),
                           alignment: Alignment.centerLeft,),padding: EdgeInsets.all(15),),
-                        Container(child :Align(child:Text('Share your opinion\n\n Respond to survey',textAlign: TextAlign.center,style: TextStyle(color: Color.fromRGBO(204,102,0,10),fontSize: 15,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold),),
+                        Container(child :Align(child:Text('Share your opinion\n\n Respond to survey',textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
                           alignment: Alignment.topRight,),padding: EdgeInsets.only(top: 40,right: 25)),
-                        Container(child :Align(child:GestureDetector(child:Text('Click Here to Respond',textAlign: TextAlign.center,style: TextStyle(color: Color.fromRGBO(204,102,0,10),fontSize: 15,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold),),
-                          onTap: (){_launchURL('https://www.surveymonkey.com/r/CRW5B2F');},),
+                        Container(child :Align(child:Text('Click Here to Respond',textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+
                           alignment: Alignment.bottomRight,),padding: EdgeInsets.only(bottom: 50,right: 20))
                       ],
                     ),
-                  ),
+                  ),onTap: (){_launchURL('https://www.surveymonkey.com/r/CRW5B2F');},),
                   Container(
                     margin: EdgeInsets.all(5.0),
                     padding: EdgeInsets.all(15.0),
@@ -340,11 +327,11 @@ class MyAppState extends State<MyApp1> {
                       children: [
                         pic3(),
                         SizedBox(width: 10,),
-                        Container(child :Align(child:Image.asset('images/Picture3.png',height: 110,width: 110,),
+                        Container(child :Align(child:Image.asset('images/Picture3.png',height: 100,width: 100,),
                           alignment: Alignment.centerLeft,),padding: EdgeInsets.all(15),),
-                        Container(child :Align(child:Text('Exciting Prizes to be\n won',textAlign: TextAlign.center,style: TextStyle(color: Color.fromRGBO(204,102,0,10),fontSize: 15,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold),),
+                        Container(child :Align(child:Text('Exciting Prizes to be\n won',textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
                           alignment: Alignment.topRight,),padding: EdgeInsets.only(top: 40,right: 25)),
-                        Container(child :Align(child:GestureDetector(child:Text('Click Here to\n Participate in the Quiz',textAlign: TextAlign.center,style: TextStyle(color: Color.fromRGBO(204,102,0,10),fontSize: 15,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold),),
+                        Container(child :Align(child:GestureDetector(child:Text('Click Here to\n Participate in the Quiz',textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
                           onTap: (){
                           },),
                           alignment: Alignment.bottomRight,),padding: EdgeInsets.only(bottom: 40,right: 15))
@@ -384,82 +371,6 @@ class MyAppState extends State<MyApp1> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  /*Container(
-                    padding: EdgeInsets.all(8),
-                    decoration: new BoxDecoration(
-                        color: Colors.white,
-
-                        borderRadius: new BorderRadius.only(
-                          topLeft:  const  Radius.circular(30.0),
-                          topRight: const  Radius.circular(30.0),
-                          bottomLeft: const Radius.circular(30.0),
-                          bottomRight: const Radius.circular(30.0),
-                        )
-                    ),
-                    child: Column(
-                      children: [
-                        *//*Row(mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            //SizedBox(height: 5,),
-                            *//**//*Container(
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color:Colors.grey,
-                              ),
-                              child:IconButton(
-                                icon: Icon(Icons.navigate_before,color: Colors.white,),
-                                onPressed: (){},
-                              ),
-                            ),
-*//**//*
-                            //SizedBox(width: 100,),
-                            Center(
-                              child:Text('Articles',
-                                style: TextStyle(
-                                  color: Colors.blue,
-                                  fontSize: 15,
-                                ),),
-                            ),
-                            //SizedBox(width: 100,),
-                            *//**//*Container(
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color:Colors.blueAccent,
-                              ),
-                              child:IconButton(
-                                icon: Icon(Icons.navigate_next,color: Colors.white,),
-                                onPressed: (){},
-                              ),
-                            ),*//**//*
-                          ],
-                        ),*//*
-                        *//*Container(
-                          margin: EdgeInsets.only(left: 20,right: 20),
-                          padding: EdgeInsets.all(12),
-                          decoration: new BoxDecoration(
-                              color: Colors.white,
-
-                              borderRadius: new BorderRadius.only(
-                                topLeft:  const  Radius.circular(30.0),
-                                topRight: const  Radius.circular(30.0),
-                                bottomLeft: const Radius.circular(30.0),
-                                bottomRight: const Radius.circular(30.0),
-                              )
-                          ),
-                          child:  Center(
-                            child: Text('Articles',
-                              style: TextStyle(
-                                color: Colors.blue,
-                                fontSize: 20,
-                              ),),
-                          ),
-                        ),*//*
-
-                      ],
-
-                    ),
-
-                  ),*/
                   SizedBox(height: 10,),
                   Container(padding: EdgeInsets.all(10),
                       child:
@@ -603,8 +514,8 @@ class MyAppState extends State<MyApp1> {
         ),
         body: TabBarView(
           children: [
-            FirstScreen(),
             objective(),
+            SecondScreen(),
             ThirdScreen(),
             ForthScreen()
           ],
@@ -1075,10 +986,10 @@ class _objectiveState extends State<objective> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(
+               /* Center(
                   child: Text("Objectives – SCOPE",style: TextStyle(fontWeight: FontWeight.bold),),
-                ),
-                SizedBox(height: 20,),
+                ),*/
+                //SizedBox(height: 20,),
                 Text("In the current telecommunication market evolution, the best opportunities for growth now centre on digital offerings in such areas as content delivery, cloud-based services, and even big data and analytics as some operators have started to monetize the information they capture in the course of business.",textAlign: TextAlign.justify,),
                 SizedBox(height: 10,),
                 Text("For this reason, we embarked on the Siyakhula Transformation Programme in late 2016 to transform business processes, operations, and a complex IT legacy landscape. This will be achieved by an agile implementation approach with delivery and improvements in a phased roll-out.The main pillars of this transformation programme inter alia support a robust and flexible environment powered by an open integration framework from a technology base that compliments initiatives to increase revenue, decrease churn and provide a superior customer experience. The programme is business led with sponsorship from the CEO, COO and Exco members.",textAlign: TextAlign.justify,),
@@ -1237,6 +1148,217 @@ class MyBullet extends StatelessWidget{
       decoration: new BoxDecoration(
         color: Colors.black,
         shape: BoxShape.circle,
+      ),
+    );
+  }
+}
+class MyApp2 extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp2> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: DefaultTabController(
+        length: 4,
+        child: Scaffold(
+          appBar:AppBar(
+            title: Image.asset('images/tcslogo.png'),
+            flexibleSpace: Container(
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: <Color>[
+                        Colors.pink,
+                        Colors.deepPurple
+                      ])
+              ),
+            ),
+            actions: [
+              Row(
+                children: [
+                  IconButton(
+                      icon: Icon(Icons.search,color: Colors.white,),
+                      onPressed: null),
+                  IconButton(
+                      icon: Icon(Icons.add_alert,color: Colors.white,),
+                      onPressed: null),
+                  IconButton(
+                      icon: Icon(Icons.account_circle,color: Colors.white,),
+                      onPressed: null),
+                ],
+              ),
+            ],
+            bottom: TabBar(
+              tabs: [
+                Tab(text: 'Month'),
+                Tab(text: 'Work Week',),
+                Tab(text: 'Day'),
+                Tab(text: 'Events',)
+              ],
+            ),
+          ),
+          body: TabBarView(
+            children: [
+              MonthScreen(),
+              WeekScreen(),
+              DayScreen(),
+              EventScreen()
+            ],
+          ),
+        ),
+      ),
+
+    );
+  }
+}
+
+class MonthScreen extends StatefulWidget {
+  @override
+  _MonthScreenState createState() => _MonthScreenState();
+}
+
+class _MonthScreenState extends State<MonthScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: SfCalendar(
+          view: CalendarView.month,
+          dataSource: MeetingDataSource(_getDataSource()),
+          monthViewSettings: MonthViewSettings(
+              appointmentDisplayMode: MonthAppointmentDisplayMode.appointment),
+        ));
+  }
+
+
+}
+List<Meeting> _getDataSource() {
+  var meetings = <Meeting>[];
+  final DateTime today = DateTime.now();
+  final DateTime startTime =
+  DateTime(today.year, today.month, 8, 9, 0, 0);
+  final DateTime endTime = startTime.add(const Duration(hours: 2));
+  meetings.add(Meeting(
+      'Change Management', startTime, endTime, const Color(0xFF0F0544), false));
+  return meetings;
+}
+
+class MeetingDataSource extends CalendarDataSource {
+  MeetingDataSource(List<Meeting> source){
+    appointments = source;
+  }
+
+  @override
+  DateTime getStartTime(int index) {
+    return appointments[index].from;
+  }
+
+  @override
+  DateTime getEndTime(int index) {
+    return appointments[index].to;
+  }
+
+  @override
+  String getSubject(int index) {
+    return appointments[index].eventName;
+  }
+
+  @override
+  Color getColor(int index) {
+    return appointments[index].background;
+  }
+
+  @override
+  bool isAllDay(int index) {
+    return appointments[index].isAllDay;
+  }
+}
+
+class Meeting {
+  Meeting(this.eventName, this.from, this.to, this.background, this.isAllDay);
+
+  String eventName;
+  DateTime from;
+  DateTime to;
+  Color background;
+  bool isAllDay;
+}
+
+class WeekScreen extends StatefulWidget {
+  @override
+  _WeekScreenState createState() => _WeekScreenState();
+}
+
+class _WeekScreenState extends State<WeekScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: SfCalendar(
+        view: CalendarView.week,
+        //specialRegions: _getTimeRegions(),
+        dataSource: MeetingDataSource(_getDataSource()),
+        monthViewSettings: MonthViewSettings(
+            appointmentDisplayMode: MonthAppointmentDisplayMode.appointment),
+
+      ),
+    );
+  }
+}
+class DayScreen extends StatefulWidget {
+  @override
+  _DayScreenState createState() => _DayScreenState();
+}
+
+class _DayScreenState extends State<DayScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        child: SfCalendar(
+          view: CalendarView.day,
+          dataSource: MeetingDataSource(_getDataSource()),
+          monthViewSettings: MonthViewSettings(
+              appointmentDisplayMode: MonthAppointmentDisplayMode.appointment),
+          appointmentTextStyle: TextStyle(
+              fontSize: 25,
+              color: Color(0xFFd89cf6),
+              letterSpacing: 5,
+              fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
+  }
+}
+class EventScreen extends StatefulWidget {
+  @override
+  _EventScreenState createState() => _EventScreenState();
+}
+
+class _EventScreenState extends State<EventScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+
+      child: SfCalendar(
+        view: CalendarView.schedule,
+        scheduleViewSettings: ScheduleViewSettings(
+            monthHeaderSettings: MonthHeaderSettings(
+                monthFormat: 'MMMM, yyyy',
+                height: 50,
+                textAlign: TextAlign.left,
+                backgroundColor: Colors.lightBlueAccent,
+                monthTextStyle: TextStyle(
+                    color: Colors.red,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w400))),
+
+
+        dataSource: MeetingDataSource(_getDataSource()),
+        monthViewSettings: MonthViewSettings(
+            appointmentDisplayMode: MonthAppointmentDisplayMode.appointment),
       ),
     );
   }
