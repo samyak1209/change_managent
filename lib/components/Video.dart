@@ -29,6 +29,10 @@ class _VideoPageState extends State<VideoPage> {
 
   @override
   Widget build(BuildContext context) {
+    /*SystemChrome.setPreferredOrientations([
+      DeviceOrientation.landscapeLeft,
+      DeviceOrientation.landscapeRight,
+    ]);*/
     return Scaffold(
       appBar: AppBar(
         title: Image.asset('images/tcslogo.png'),
@@ -61,6 +65,7 @@ class _VideoPageState extends State<VideoPage> {
       ),
       body: ListView(
         children: <Widget>[
+          SizedBox(height: 150,),
           FutureBuilder(
             future: initialiseVideo,
             builder: (context,snapshot){

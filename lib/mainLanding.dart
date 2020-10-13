@@ -275,7 +275,7 @@ class MyAppState extends State<MyApp1> {
                       children: [
                         pic1(),
                         SizedBox(width: 10,),
-                        Container(child :Align(child:Image.asset('images/Picture1.png',height: 115,width: 115,),
+                        Container(child :Align(child:Image.asset('images/Picture1.png',height: MediaQuery.of(context).size.width*0.2,width: MediaQuery.of(context).size.width*0.2,),
                           alignment: Alignment.centerLeft,),padding: EdgeInsets.all(15),),
                         Container(child :Align(child:Text('Day in a Life of\n Purchase Manager',textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
                           alignment: Alignment.topRight,),padding: EdgeInsets.only(top: 40,right: 25)),
@@ -304,7 +304,7 @@ class MyAppState extends State<MyApp1> {
                       children: [
                         pic2(),
                         SizedBox(width: 10,),
-                        Container(child :Align(child:Image.asset('images/Picture2.png',height: 90,width: 90,),
+                        Container(child :Align(child:Image.asset('images/Picture2.png',height: MediaQuery.of(context).size.width*0.2,width: MediaQuery.of(context).size.width*0.2,),
                           alignment: Alignment.centerLeft,),padding: EdgeInsets.all(15),),
                         Container(child :Align(child:Text('Share your opinion\n\n Respond to survey',textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
                           alignment: Alignment.topRight,),padding: EdgeInsets.only(top: 40,right: 25)),
@@ -327,11 +327,11 @@ class MyAppState extends State<MyApp1> {
                       children: [
                         pic3(),
                         SizedBox(width: 10,),
-                        Container(child :Align(child:Image.asset('images/Picture3.png',height: 100,width: 100,),
+                        Container(child :Align(child:Image.asset('images/Picture3.png',height: MediaQuery.of(context).size.width*0.2,width: MediaQuery.of(context).size.width*0.2,),
                           alignment: Alignment.centerLeft,),padding: EdgeInsets.all(15),),
-                        Container(child :Align(child:Text('Exciting Prizes to be\n won',textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                        Container(child :Align(child:Container(width:95,child:Text('Exciting Prizes to be won',textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),),
                           alignment: Alignment.topRight,),padding: EdgeInsets.only(top: 40,right: 25)),
-                        Container(child :Align(child:GestureDetector(child:Text('Click Here to\n Participate in the Quiz',textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                        Container(child :Align(child:GestureDetector(child:Container(width:MediaQuery.of(context).size.width*0.3,child:Text('Click Here to Participate in the Quiz',textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),),
                           onTap: (){
                           },),
                           alignment: Alignment.bottomRight,),padding: EdgeInsets.only(bottom: 40,right: 15))
@@ -343,7 +343,8 @@ class MyAppState extends State<MyApp1> {
                 reverse: false,
                 enlargeCenterPage: true,
                 aspectRatio:
-                16 / 9,
+                16/9,
+                //viewportFraction: 0.9,
                 onPageChanged: (index) {
                   setState(() {
                     _current = index;
@@ -633,6 +634,7 @@ class More_screen extends StatefulWidget {
 
 class _More_screenState extends State<More_screen> {
   final color=[Colors.deepOrange,Colors.green,Colors.blueAccent,Colors.pinkAccent,Colors.pink,Colors.purple];
+  final agent=["Change Agent Network","Communication Archive","Training Schedule","Contact Us"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -672,7 +674,7 @@ class _More_screenState extends State<More_screen> {
     return GridView.count(
       crossAxisCount:2,
       //childAspectRatio: 3/2,
-      children:List.generate(6, (index){
+      children:List.generate(4, (index){
         return Card(
           margin: EdgeInsets.symmetric(vertical: 20,horizontal: 20),
           shape: RoundedRectangleBorder(
@@ -689,10 +691,10 @@ class _More_screenState extends State<More_screen> {
               children: [
                 SizedBox(height: 30,),
                 InkWell(
-                    child: Text("Change Agent", style: TextStyle(
+                    child: Text(agent.elementAt(index).toString(), style: TextStyle(
                         color: color[index],
                         fontSize: 17,
-                        fontWeight: FontWeight.bold),),
+                        fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
                     onTap:(){
                       if(index==0)
                       {
@@ -928,14 +930,14 @@ class _PocPageState extends State<PocPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text("Who is change agent?",style: TextStyle(
-                  color: Colors.blueAccent,
+                 // color: Colors.blueAccent,
                   fontWeight: FontWeight.bold,
-                  fontSize: 23,
+                  fontSize: 20,
                 ),),
                 SizedBox(height: 20,),
                 Text("Lorem ipsum dolor sit amet, consectetur adipis cing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",style: TextStyle(
                   color: Colors.black,
-                  fontSize: 18,
+                  fontSize: 14,letterSpacing: 0.6
                 ),),
                 SizedBox(height: 20,),
                 Container(
@@ -944,14 +946,14 @@ class _PocPageState extends State<PocPage> {
                   color:Colors.grey,),
                 SizedBox(height: 20,),
                 Text("Change agent’s responsibilities",style: TextStyle(
-                  color: Colors.blueAccent,
+                  //color: Colors.blueAccent,
                   fontWeight: FontWeight.bold,
-                  fontSize: 23,
+                  fontSize: 20,
                 ),),
                 SizedBox(height: 20,),
                 Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.",style: TextStyle(
                   color: Colors.black,
-                  fontSize: 18,
+                  fontSize: 14,letterSpacing: 0.6
                 ),),
 
               ],
